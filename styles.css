@@ -1691,6 +1691,10 @@ a.mma-nav-tab:hover {
     flex: 0 0 auto;
   }
 
+  .nav-actions .btn-get-app {
+    display: none;
+  }
+
   .btn-get-app {
     flex: 0 0 clamp(112px, 31vw, 136px);
     width: clamp(112px, 31vw, 136px);
