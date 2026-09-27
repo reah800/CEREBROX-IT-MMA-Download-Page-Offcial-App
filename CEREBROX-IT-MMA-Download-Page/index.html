@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mindanao Mission Academy — Official School App</title>
+  <meta name="description" content="Download the official Mindanao Mission Academy app to stay connected to your child's school day — attendance, grades, safety alerts, finances, and campus life." />
+  
+  <!-- Favicon / Manifest -->
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" type="image/png" href="mma-logo.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Background Decorative Ambient Glows -->
+  <div class="bg-glow-top-left" aria-hidden="true"></div>
+  <div class="bg-glow-hero-right" aria-hidden="true"></div>
+
+  <!-- Header / Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="brand-logo" aria-label="Mindanao Mission Academy Home">
+        <img src="mma-logo.png" alt="Mindanao Mission Academy Official Logo" class="brand-logo-img" />
+        <div class="brand-text-wrap">
+          <span class="logo-text">Mindanao Mission Academy</span>
+          <span class="logo-subtext">Official School App</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="nav-menu" id="navMenu">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#how-to-install" class="nav-link">How to Install</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Header CTA Button & Mobile Toggle -->
+      <div class="nav-actions">
+        <a href="#download" class="btn-get-app">Get the App</a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main>
+    <section class="hero-section" id="home">
+      <div class="hero-container">
+        
+        <!-- Hero Left Content -->
+        <div class="hero-content">
+          
+          <div class="hero-tagline">
+            <span class="tagline-dash"></span>
+            <span class="tagline-text">The Most Reliable School Companion App</span>
+          </div>
+
+          <h1 class="hero-title">
+            Stay Connected To Your Child's <br />
+            <span class="highlight-brand">School Day</span>
+          </h1>
+
+          <p class="hero-description">
+            The official MMA app keeps families informed with real-time updates on academics, campus safety, attendance, finances, and school life.
+          </p>
+
+          <!-- Store Download Badges -->
+          <div class="app-store-badges">
+            
+            <!-- Google Play Store Button -->
+            <a href="#download" class="store-badge google-play-badge download-btn" data-platform="google-play" aria-label="Get it on Google Play">
+              <svg class="badge-icon" viewBox="0 0 512 512" width="26" height="26">
+                <path fill="#4285F4" d="M325.3 234.3L104.6 13l280.8 161.2-60.1 59.9.02.2z"/>
+                <path fill="#34A853" d="M47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256-256L47 0z"/>
+                <path fill="#FBBC04" d="M47 512c5.6 0 11.2-1.4 16.3-4.3l262-150.3-60-60L47 512z"/>
+                <path fill="#EA4335" d="M482.2 232.2l-96.8-55.7-60.1 60 60.1 60.1 96.8-55.7c16.3-9.3 25.3-25.7 25.3-44.3 0-18.7-9-35.1-25.3-44.4z"/>
+              </svg>
+              <div class="badge-text">
+                <span class="badge-sub">GET IT ON</span>
+                <span class="badge-title">Google Play</span>
+              </div>
+            </a>
+
+          </div>
+
+          <!-- School Stats -->
+          <div class="school-stats-simple">
+            <div class="stat-simple-item">
+              <span class="stat-num">1,282</span>
+              <span class="stat-desc">Students</span>
+            </div>
+            <span class="stat-separator">•</span>
+            <div class="stat-simple-item">
+              <span class="stat-num">146</span>
+              <span class="stat-desc">Teachers</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Hero Right: Realistic Interactive Phone Mockup -->
+        <div class="hero-mockup-wrapper">
+
+          <!-- Smartphone Shell -->
+          <div class="phone-frame">
+            
+            <!-- Phone Outer Bezel & Buttons -->
+            <div class="phone-button-volume-up"></div>
+            <div class="phone-button-volume-down"></div>
+            <div class="phone-button-power"></div>
+
+            <div class="phone-inner">
+              
+              <!-- Dynamic Island & Status Bar (White on Maroon Header) -->
+              <div class="phone-status-bar phone-status-bar-white">
+                <span class="status-time">9:41</span>
+                <div class="dynamic-island">
+                  <div class="camera-lens"></div>
+                </div>
+                <div class="status-icons">
+                  <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 19.4c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0l1.9-1.9C9.22 19.63 10.57 20 12 20c4.97 0 9-4.03 9-9s-4.03-9-9-9zm0 15c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/></svg>
+                  <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M12 4C7.31 4 3.07 5.9 0 8.98L12 21 24 8.98A16.88 16.88 0 0 0 12 4z"/></svg>
+                  <div class="battery-icon battery-white"><div class="battery-level"></div></div>
+                </div>
+              </div>
+
+              <!-- MMA App Screen Layout Matching Screenshot -->
+              <div class="phone-screen-content mma-app-screen">
+                
+                <!-- Maroon Header Section -->
+                <div class="mma-header-card">
+                  <div class="mma-header-top">
+                    <div class="mma-greeting-wrap">
+                      <h2 class="mma-greeting">Hello, Parent</h2>
+                      <p class="mma-date">Monday, September 28</p>
+                    </div>
+                    <div class="mma-header-actions">
+                      <div class="mma-notif-btn" title="10 Notifications">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                          <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                        </svg>
+                        <span class="mma-badge">10</span>
+                      </div>
+                      <div class="mma-logout-btn" title="Account / Sign Out">
+                        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                          <polyline points="16 17 21 12 16 7"></polyline>
+                          <line x1="21" y1="12" x2="9" y2="12"></line>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Quick Action Pills Row -->
+                  <div class="mma-quick-actions">
+                    <div class="mma-action-pill">
+                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                      </svg>
+                      <span>Events</span>
+                    </div>
+                    
+                    <div class="mma-action-pill">
+                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                        <line x1="1" y1="10" x2="23" y2="10"></line>
+                      </svg>
+                      <span>Fees</span>
+                    </div>
+
+                    <div class="mma-action-pill">
+                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                      </svg>
+                      <span>Advisory</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Main Scrollable App Body -->
+                <div class="mma-app-body">
+                  
+                  <!-- My Children Section -->
+                  <div class="mma-section-block">
+                    <h3 class="mma-body-title">My Children</h3>
+                    
+                    <!-- Student Card -->
+                    <div class="mma-child-card">
+                      <div class="mma-student-avatar-wrap">
+                        <img src="male.png?auto=format&fit=crop&w=150&h=150&q=80" alt="Joshua Emmanuel Dela Cruz" class="mma-student-photo" />
+                      </div>
+                      
+                      <div class="mma-child-info">
+                        <h4 class="mma-child-name">Joshua Dela Cruz</h4>
+                        <p class="mma-child-grade">Grade 7</p>
+                        <span class="mma-child-section">Emerald</span>
+                      </div>
+
+                      <div class="mma-child-arrow-btn">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- MMA Campus Aerial Showcase Card -->
+                  <div class="mma-campus-banner-wrap">
+                    <div class="mma-campus-img-container">
+                      <img src="campus-banner.jpg" alt="Mindanao Mission Academy Campus Aerial View" class="mma-campus-banner-img" />
+                      <div class="mma-campus-badge-tag">MMA Campus</div>
+                    </div>
+                    
+                    <!-- Carousel Pagination Dots -->
+                    <div class="mma-carousel-dots">
+                      <span class="mma-dot active"></span>
+                      <span class="mma-dot"></span>
+                    </div>
+                  </div>
+
+                </div>
+
+                <!-- Bottom App Tab Navigation -->
+                <div class="mma-bottom-nav">
+                  <div class="mma-nav-tab active">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                      <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                    </svg>
+                    <span>Home</span>
+                  </div>
+
+                  <a href="https://www.facebook.com/mindanaomissionacademyofficialpage/" target="_blank" rel="noopener noreferrer" class="mma-nav-tab" aria-label="MMA Official Facebook Page">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                      <path d="M12 2.04c-5.5 0-10 4.49-10 10.02 0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7a10 10 0 0 0 8.44-9.9c0-5.53-4.5-10.02-10-10.02z"/>
+                    </svg>
+                    <span>MMA-FB</span>
+                  </a>
+
+                  <div class="mma-nav-tab">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                    <span>Contact</span>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Phone Home Indicator Bar -->
+              <div class="phone-home-bar"></div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Bottom Scroll Down Indicator -->
+      <a href="#features" class="scroll-down-indicator" aria-label="Scroll down to features">
+        <div class="scroll-pill">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#8F0527" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <polyline points="19 12 12 19 5 12"></polyline>
+          </svg>
+        </div>
+      </a>
+
+    </section>
+
+    <!-- Features Section -->
+    <section class="section features-section" id="features">
+      <div class="container">
+        
+        <div class="section-header">
+          <span class="section-tag">— Everything In One App</span>
+          <h2 class="section-title">Essential Tools for Every MMA Family</h2>
+          <p class="section-desc">Experience seamless communication, academic oversight, and safety tracking directly on your mobile device.</p>
+        </div>
+
+        <div class="features-grid">
+          
+          <div class="feature-card">
+            <div class="feature-icon-badge">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 20V10M12 20V4M6 20v-6"/>
+              </svg>
+            </div>
+            <h3 class="feature-name">Real-time Alerts</h3>
+            <p class="feature-text">Instant notifications for emergency alerts, school announcements, event updates, and weather advisories.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-badge">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+              </svg>
+            </div>
+            <h3 class="feature-name">Academics &amp; Grades</h3>
+            <p class="feature-text">View quarterly report cards, track assignment submissions, and monitor daily subject schedules easily.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-badge">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <h3 class="feature-name">Safety &amp; Attendance</h3>
+            <p class="feature-text">Real-time campus check-in/check-out logs, conduct records, clinic visits, and campus safety notices.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-badge">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="1" x2="12" y2="23"/>
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+              </svg>
+            </div>
+            <h3 class="feature-name">Finance &amp; Tuition</h3>
+            <p class="feature-text">Check remaining tuition balances, view payment history, and receive upcoming fee deadline reminders.</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- How to Install Section -->
+    <section class="section how-section" id="how-to-install">
+      <div class="container">
+        
+        <div class="section-header">
+          <span class="section-tag">— Easy Setup</span>
+          <h2 class="section-title">How to Install in 3 Easy Steps</h2>
+          <p class="section-desc">Get connected to Mindanao Mission Academy on your mobile device in under two minutes.</p>
+        </div>
+
+        <div class="steps-grid">
+          
+          <div class="step-card">
+            <div class="step-number">01</div>
+            <div class="step-icon-wrap">
+              <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+            </div>
+            <h3 class="step-title">Tap Install</h3>
+            <p class="step-desc">Find Mindanao Mission Academy App on Google Play and tap Install.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">02</div>
+            <div class="step-icon-wrap">
+              <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="23 4 23 10 17 10"/>
+                <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+              </svg>
+            </div>
+            <h3 class="step-title">Wait for Download</h3>
+            <p class="step-desc">Stay connected — the lightweight school app installs in seconds on your smartphone.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">03</div>
+            <div class="step-icon-wrap">
+              <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                <line x1="12" y1="18" x2="12.01" y2="18"/>
+              </svg>
+            </div>
+            <h3 class="step-title">Open &amp; Sign In</h3>
+            <p class="step-desc">Log in with your official MMA parent account credentials and you're ready.</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Download Call-to-Action Section -->
+    <section class="section cta-section" id="download">
+      <div class="container">
+        <div class="cta-box">
+          <div class="cta-content">
+            <h2 class="cta-title">Stay Connected with Mindanao Mission Academy</h2>
+            <p class="cta-sub">Download the official MMA app today for instant notifications on grades, attendance, announcements, and campus life.</p>
+            <div class="app-store-badges">
+              <a href="#download" class="store-badge google-play-badge download-btn" data-platform="google-play">
+                <svg class="badge-icon" viewBox="0 0 512 512" width="24" height="24">
+                  <path fill="#4285F4" d="M325.3 234.3L104.6 13l280.8 161.2-60.1 59.9.02.2z"/>
+                  <path fill="#34A853" d="M47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256-256L47 0z"/>
+                  <path fill="#FBBC04" d="M47 512c5.6 0 11.2-1.4 16.3-4.3l262-150.3-60-60L47 512z"/>
+                  <path fill="#EA4335" d="M482.2 232.2l-96.8-55.7-60.1 60 60.1 60.1 96.8-55.7c16.3-9.3 25.3-25.7 25.3-44.3 0-18.7-9-35.1-25.3-44.4z"/>
+                </svg>
+                <div class="badge-text">
+                  <span class="badge-sub">GET IT ON</span>
+                  <span class="badge-title">Google Play</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" id="contact">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <div class="brand-logo">
+          <img src="mma-logo.png" alt="Mindanao Mission Academy Official Logo" class="brand-logo-img" />
+          <div class="brand-text-wrap">
+            <span class="logo-text">Mindanao Mission Academy</span>
+            <span class="logo-subtext">Official School App</span>
+          </div>
+        </div>
+        <p class="footer-about">
+          Mindanao Mission Academy is committed to academic excellence, Christian values, and community safety.
+        </p>
+      </div>
+
+      <!-- Center Contact Info Column -->
+      <div class="footer-contact-center">
+        <h4 class="footer-heading">Contact Us</h4>
+        <p class="footer-contact-info">
+          📍 Manticao, Misamis Oriental, Philippines<br/>
+          📞 (082) 123-4567<br/>
+          ✉️ <a href="mailto:info@mma.edu.ph">info@mma.edu.ph</a>
+        </p>
+      </div>
+
+
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p class="copyright">© 2026 Mindanao Mission Academy. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
