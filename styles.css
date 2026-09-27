@@ -961,9 +961,18 @@ button {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  align-items: stretch;
+}
+
+.mma-section-block {
+  width: 100%;
+  text-align: left;
 }
 
 .mma-body-title {
+  display: block;
+  width: 100%;
+  text-align: left;
   font-family: var(--font-heading);
   font-size: 0.98rem;
   font-weight: 800;
@@ -1683,11 +1692,18 @@ a.mma-nav-tab:hover {
   }
 
   .btn-get-app {
-    width: clamp(96px, 30vw, 136px);
-    min-width: clamp(96px, 30vw, 136px);
-    max-width: clamp(96px, 30vw, 136px);
+    flex: 0 0 clamp(112px, 31vw, 136px);
+    width: clamp(112px, 31vw, 136px);
+    min-width: clamp(112px, 31vw, 136px);
+    max-width: clamp(112px, 31vw, 136px);
+    height: 44px;
+    min-height: 44px;
+    max-height: 44px;
     padding: 0 10px;
     font-size: clamp(0.78rem, 3.4vw, 0.94rem);
+    line-height: 1;
+    white-space: nowrap;
+    border-radius: var(--radius-pill);
   }
 
   /* Keep the full academy name readable by wrapping it inside the brand area. */
@@ -1853,7 +1869,19 @@ a.mma-nav-tab:hover {
   }
 
   .nav-actions {
-    gap: 10px;
+    gap: 6px;
+  }
+
+  .nav-actions .btn-get-app {
+    flex-basis: clamp(96px, 27vw, 112px);
+    width: clamp(96px, 27vw, 112px);
+    min-width: clamp(96px, 27vw, 112px);
+    max-width: clamp(96px, 27vw, 112px);
+    height: 40px;
+    min-height: 40px;
+    max-height: 40px;
+    padding: 0 8px;
+    font-size: clamp(0.72rem, 3.2vw, 0.82rem);
   }
 
   .cta-box {
