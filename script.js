@@ -9,6 +9,38 @@ if ('serviceWorker' in navigator) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Allow tablet users to opt into the existing responsive page layout.
+  const layoutSwitch = document.getElementById('layoutSwitch');
+  const layoutOptions = layoutSwitch?.querySelectorAll('[data-layout]') ?? [];
+  let savedLayout = null;
+  try {
+    savedLayout = localStorage.getItem('mma-page-layout');
+  } catch (_) {
+    // The toggle still works for this visit if browser storage is unavailable.
+  }
+  const setLayout = (layout) => {
+    const isMobileLayout = layout === 'mobile';
+    document.body.classList.toggle('mobile-layout', isMobileLayout);
+    layoutOptions.forEach((option) => {
+      const selected = option.dataset.layout === layout;
+      option.classList.toggle('is-selected', selected);
+      option.setAttribute('aria-pressed', String(selected));
+    });
+  };
+
+  setLayout(savedLayout === 'mobile' ? 'mobile' : 'tablet');
+  layoutOptions.forEach((option) => {
+    option.addEventListener('click', () => {
+      const layout = option.dataset.layout;
+      setLayout(layout);
+      try {
+        localStorage.setItem('mma-page-layout', layout);
+      } catch (_) {
+        // Keep the selected mode for this page even when storage is unavailable.
+      }
+    });
+  });
+
   // 1. Navbar Scroll Effect & Active Section Tracking
   const navbar = document.getElementById('navbar');
   const navLinks = document.querySelectorAll('.nav-link');

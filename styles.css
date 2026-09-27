@@ -140,19 +140,27 @@ button {
 .brand-logo {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   user-select: none;
+  flex-shrink: 1;
+  min-width: 0;
+  text-decoration: none;
 }
 
 .brand-logo-img {
   width: 44px;
   height: 44px;
+  min-width: 44px;
+  max-width: 44px;
+  min-height: 44px;
+  max-height: 44px;
   border-radius: 50%;
   object-fit: contain;
   box-shadow: 0 4px 14px rgba(143, 5, 39, 0.18);
   transition: var(--transition);
   flex-shrink: 0;
   background: #ffffff;
+  box-sizing: border-box;
 }
 
 .brand-logo:hover .brand-logo-img {
@@ -162,23 +170,34 @@ button {
 .brand-text-wrap {
   display: flex;
   flex-direction: column;
+  min-width: 0;
+  flex-shrink: 1;
 }
+
+/* Always show full school name — never abbreviate */
+.logo-short { display: none !important; }
+.logo-full  { display: inline !important; }
 
 .logo-text {
   font-family: var(--font-heading);
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-weight: 800;
   color: var(--dark-heading);
   letter-spacing: -0.02em;
   line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .logo-subtext {
-  font-size: 0.72rem;
-  font-weight: 600;
+  font-size: 0.68rem;
+  font-weight: 700;
   color: var(--primary);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  line-height: 1.3;
 }
 
 /* Navigation Links */
@@ -223,21 +242,34 @@ button {
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
+  flex-shrink: 0;
 }
 
 .btn-get-app {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 26px;
+  text-align: center;
+  white-space: nowrap;
+  flex-shrink: 0;
+  width: 136px;
+  height: 44px;
+  min-width: 136px;
+  max-width: 136px;
+  min-height: 44px;
+  max-height: 44px;
+  padding: 0 16px;
   background: var(--primary);
   color: #ffffff;
   font-family: var(--font-body);
   font-size: 0.94rem;
   font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.01em;
   border-radius: var(--radius-pill);
   box-shadow: var(--shadow-btn);
+  box-sizing: border-box;
   transition: var(--transition);
 }
 
@@ -256,18 +288,146 @@ button {
   display: none;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   gap: 5px;
-  width: 36px;
-  height: 36px;
-  padding: 4px;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  max-width: 40px;
+  min-height: 40px;
+  max-height: 40px;
+  padding: 0;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  transition: var(--transition);
 }
 
 .mobile-toggle span {
-  width: 100%;
+  width: 22px;
   height: 2.5px;
   background: var(--dark-heading);
   border-radius: 4px;
   transition: var(--transition);
+  display: block;
+  transform-origin: center;
+}
+
+/* Tablet users can switch to the same compact navigation/layout used on phones. */
+.layout-switch {
+  display: none;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 120;
+  align-items: center;
+  gap: 4px;
+  padding: 5px;
+  border: 1px solid var(--gray-border);
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: var(--shadow-md);
+}
+
+.layout-switch-label {
+  padding: 0 7px;
+  color: var(--gray-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.layout-switch-option {
+  min-height: 34px;
+  padding: 0 13px;
+  border-radius: var(--radius-pill);
+  color: var(--gray-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+  transition: var(--transition);
+}
+
+.layout-switch-option.is-selected {
+  background: var(--primary);
+  color: #fff;
+}
+
+.layout-switch-option:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .layout-switch { display: flex; }
+}
+
+/* The opt-in class reuses the established phone layout rules at tablet widths. */
+@media (min-width: 769px) {
+  body.mobile-layout .navbar { padding: 12px 0; }
+  body.mobile-layout .nav-menu {
+    position: fixed;
+    top: 68px;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    flex-direction: column;
+    padding: 26px 20px;
+    gap: 18px;
+    box-shadow: var(--shadow-lg);
+    border-bottom: 1px solid var(--gray-border);
+    transform: translateY(-150%);
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--transition);
+    margin: 0;
+  }
+  body.mobile-layout .nav-menu.is-open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+  body.mobile-layout .nav-actions { gap: 12px; }
+  body.mobile-layout .mobile-toggle { display: flex; }
+  body.mobile-layout .mobile-toggle.is-open span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+  body.mobile-layout .mobile-toggle.is-open span:nth-child(2) { opacity: 0; }
+  body.mobile-layout .mobile-toggle.is-open span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+  body.mobile-layout .steps-grid { grid-template-columns: 1fr; }
+  body.mobile-layout .footer-container {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding: 44px 24px 36px;
+  }
+  body.mobile-layout .footer-brand,
+  body.mobile-layout .footer-contact-center,
+  body.mobile-layout .footer-about,
+  body.mobile-layout .footer-contact-info,
+  body.mobile-layout .footer-heading,
+  body.mobile-layout .footer-links-group,
+  body.mobile-layout .footer-list {
+    align-items: center;
+    text-align: center;
+  }
+  body.mobile-layout .footer-brand { grid-column: auto; }
+  body.mobile-layout .footer-brand .brand-logo { justify-content: center; }
+  body.mobile-layout .footer-bottom-inner {
+    padding: 0 24px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  body.mobile-layout .phone-frame { width: 310px; max-width: 100%; height: 620px; }
+}
+
+@media (min-width: 769px) and (max-width: 850px) {
+  body.mobile-layout .nav-container { padding: 0 16px; }
+  body.mobile-layout .brand-logo { gap: 8px; }
+  body.mobile-layout .brand-logo-img {
+    width: 38px; height: 38px; min-width: 38px; max-width: 38px;
+    min-height: 38px; max-height: 38px;
+  }
+  body.mobile-layout .logo-text { font-size: 0.95rem; }
+  body.mobile-layout .logo-subtext { font-size: 0.6rem; }
+  body.mobile-layout .nav-actions { gap: 10px; }
 }
 
 /* -------------------------------------------------------------
@@ -344,6 +504,7 @@ button {
 .app-store-badges {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
   gap: 16px;
   margin-bottom: 32px;
@@ -352,15 +513,26 @@ button {
 .store-badge {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 12px;
+  width: 196px;
+  height: 56px;
+  min-width: 196px;
+  max-width: 196px;
+  min-height: 56px;
+  max-height: 56px;
+  padding: 0 18px;
   background: #171214;
   color: #ffffff;
-  padding: 10px 22px;
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: 0 4px 16px rgba(23, 18, 20, 0.18);
   transition: var(--transition);
   user-select: none;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  white-space: nowrap;
+  text-decoration: none;
 }
 
 .store-badge:hover {
@@ -370,8 +542,19 @@ button {
   border-color: rgba(255, 255, 255, 0.28);
 }
 
+.store-badge:active {
+  transform: translateY(0);
+}
+
 .badge-icon {
+  width: 26px;
+  height: 26px;
+  min-width: 26px;
+  min-height: 26px;
+  max-width: 26px;
+  max-height: 26px;
   flex-shrink: 0;
+  display: block;
 }
 
 .badge-text {
@@ -379,23 +562,31 @@ button {
   flex-direction: column;
   text-align: left;
   align-items: flex-start;
+  justify-content: center;
+  line-height: 1;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .badge-sub {
-  font-size: 0.62rem;
+  font-size: 0.64rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   font-weight: 600;
   color: #cbd5e1;
   line-height: 1.1;
+  margin-bottom: 3px;
+  white-space: nowrap;
 }
 
 .badge-title {
-  font-size: 1.05rem;
+  font-size: 1.08rem;
   font-weight: 700;
   font-family: var(--font-heading);
   letter-spacing: -0.01em;
-  line-height: 1.2;
+  line-height: 1.15;
+  color: #ffffff;
+  white-space: nowrap;
 }
 
 /* Clean Modern School Stats */
@@ -643,10 +834,18 @@ button {
   position: relative;
   cursor: default;
   pointer-events: none;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  max-width: 32px;
+  min-height: 32px;
+  max-height: 32px;
   color: #ffffff;
+  flex-shrink: 0;
+  box-sizing: border-box;
 }
 
 .mma-badge {
@@ -667,30 +866,44 @@ button {
   cursor: default;
   pointer-events: none;
   color: #ffffff;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  max-width: 32px;
+  min-height: 32px;
+  max-height: 32px;
+  flex-shrink: 0;
+  box-sizing: border-box;
 }
 
 /* Quick Action Pills */
 .mma-quick-actions {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
+  gap: 6px;
 }
 
 .mma-action-pill {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
+  gap: 5px;
   background: rgba(255, 255, 255, 0.14);
   border: 1px solid rgba(255, 255, 255, 0.22);
-  padding: 8px 10px;
+  height: 32px;
+  min-height: 32px;
+  max-height: 32px;
+  padding: 0 8px;
   border-radius: var(--radius-pill);
   font-size: 0.72rem;
   font-weight: 700;
   color: #ffffff;
+  white-space: nowrap;
+  box-sizing: border-box;
+  flex-shrink: 0;
   cursor: default;
   pointer-events: none;
   user-select: none;
@@ -775,13 +988,18 @@ button {
 .mma-child-arrow-btn {
   width: 32px;
   height: 32px;
+  min-width: 32px;
+  max-width: 32px;
+  min-height: 32px;
+  max-height: 32px;
   border-radius: 10px;
   background: #fdf2f4;
   color: #8F0527;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  box-sizing: border-box;
 }
 
 /* Campus Aerial Showcase Banner */
@@ -855,14 +1073,20 @@ button {
   justify-content: space-around;
   padding: 0 16px 8px 16px;
   z-index: 20;
+  box-sizing: border-box;
 }
 
 .mma-nav-tab {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 2px;
+  min-width: 56px;
+  height: 44px;
   color: #64748b;
+  white-space: nowrap;
+  box-sizing: border-box;
   cursor: default;
   pointer-events: none;
   user-select: none;
@@ -912,15 +1136,21 @@ a.mma-nav-tab:hover {
 .scroll-pill {
   width: 36px;
   height: 56px;
+  min-width: 36px;
+  max-width: 36px;
+  min-height: 56px;
+  max-height: 56px;
   border: 2px solid rgba(143, 5, 39, 0.3);
   border-radius: var(--radius-pill);
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   background: #ffffff;
   box-shadow: 0 4px 12px rgba(143, 5, 39, 0.1);
   animation: bounceDown 2s ease-in-out infinite;
   transition: var(--transition);
+  flex-shrink: 0;
+  box-sizing: border-box;
 }
 
 .scroll-pill:hover {
@@ -1195,6 +1425,20 @@ a.mma-nav-tab:hover {
 
 .footer-brand .logo-text {
   color: #ffffff;
+  white-space: normal;
+}
+
+.footer-brand .logo-full {
+  display: inline !important;
+}
+
+.footer-brand .logo-short {
+  display: none !important;
+}
+
+.footer-brand .logo-subtext {
+  display: block !important;
+  color: rgba(203, 213, 225, 0.85);
 }
 
 .footer-about {
@@ -1336,21 +1580,26 @@ a.mma-nav-tab:hover {
 }
 
 @media (max-width: 768px) {
+  .navbar {
+    padding: 12px 0;
+  }
+
   .nav-menu {
     position: fixed;
-    top: 73px;
+    top: 68px;
     left: 0;
     width: 100%;
     background: #ffffff;
     flex-direction: column;
-    padding: 30px 24px;
-    gap: 20px;
+    padding: 26px 20px;
+    gap: 18px;
     box-shadow: var(--shadow-lg);
     border-bottom: 1px solid var(--gray-border);
     transform: translateY(-150%);
     opacity: 0;
     pointer-events: none;
     transition: var(--transition);
+    margin: 0;
   }
 
   .nav-menu.is-open {
@@ -1358,6 +1607,15 @@ a.mma-nav-tab:hover {
     opacity: 1;
     pointer-events: auto;
   }
+
+  .nav-actions {
+    gap: 12px;
+  }
+
+  /* Logo always fully visible at tablet/mobile \u2014 never truncate */
+  .logo-full   { display: inline !important; }
+  .logo-short  { display: none   !important; }
+  .logo-subtext { display: block  !important; }
 
   .mobile-toggle {
     display: flex;
@@ -1378,33 +1636,65 @@ a.mma-nav-tab:hover {
   }
 
   /* Footer: mobile — single column, center-aligned */
-  .footer-container {
+  .container.footer-container {
     grid-template-columns: 1fr;
-    gap: 36px;
-    padding: 44px 24px 36px;
+    width: 100%;
+    min-width: 0;
+    gap: 30px;
+    padding: 40px 20px 32px;
   }
 
   .footer-brand {
     grid-column: auto;
     align-items: center;
     text-align: center;
+    min-width: 0;
+    width: 100%;
   }
 
   .footer-brand .brand-logo {
     justify-content: center;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .footer-brand .brand-text-wrap,
+  .footer-brand .logo-text {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .footer-brand .logo-text {
+    overflow-wrap: anywhere;
   }
 
   .footer-about {
     text-align: center;
+    width: 100%;
+    min-width: 0;
+    overflow-wrap: anywhere;
   }
 
   .footer-contact-center {
     align-items: center;
     text-align: center;
+    width: 100%;
+    min-width: 0;
+    padding-left: 0;
   }
 
   .footer-contact-info {
     text-align: center;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding-left: 0;
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+
+  .footer-contact-info a {
+    overflow-wrap: anywhere;
   }
 
   .footer-links-group {
@@ -1426,14 +1716,125 @@ a.mma-nav-tab:hover {
   }
 
   .footer-bottom-inner {
-    padding: 0 24px;
+    width: 100%;
+    min-width: 0;
+    padding: 0 20px;
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
 
+  .footer-bottom-inner .copyright {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
   .phone-frame {
-    width: 290px;
-    height: 580px;
+    width: 310px;
+    max-width: 100%;
+    height: 620px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .nav-container {
+    padding: 0 16px;
+  }
+
+  /* --- Logo: always full name, just scale down the text --- */
+  .brand-logo {
+    gap: 8px;
+  }
+
+  .brand-logo-img {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    max-width: 38px;
+    min-height: 38px;
+    max-height: 38px;
+  }
+
+  /* NEVER hide the full name or subtext in the navbar */
+  .logo-full   { display: inline !important; }
+  .logo-short  { display: none   !important; }
+  .logo-subtext { display: block  !important; }
+
+  .logo-text {
+    font-size: 0.95rem;
+  }
+
+  .logo-subtext {
+    font-size: 0.6rem;
+  }
+
+  .nav-actions {
+    gap: 10px;
+  }
+
+  .cta-box {
+    padding: 44px 18px;
+    border-radius: 24px;
+  }
+
+  .cta-title {
+    font-size: 1.85rem;
+  }
+
+  .hero-title {
+    font-size: 2.15rem;
+  }
+
+  .hero-section {
+    padding: 40px 0 50px;
+  }
+}
+
+@media (max-width: 360px) {
+  .container {
+    padding: 0 12px;
+  }
+
+  .nav-container {
+    padding: 0 12px;
+  }
+
+  .nav-actions {
+    gap: 8px;
+  }
+
+  /* Logo: still full name, just smaller */
+  .brand-logo-img {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    max-width: 32px;
+    min-height: 32px;
+    max-height: 32px;
+  }
+
+  .logo-full   { display: inline !important; }
+  .logo-short  { display: none   !important; }
+  .logo-subtext { display: block  !important; }
+
+  .logo-text {
+    font-size: 0.85rem;
+  }
+
+  .logo-subtext {
+    font-size: 0.56rem;
+  }
+
+  .phone-frame {
+    width: 295px;
+    height: 590px;
+  }
+
+  .cta-box {
+    padding: 36px 14px;
   }
 }
