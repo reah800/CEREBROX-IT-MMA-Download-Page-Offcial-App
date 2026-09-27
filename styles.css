@@ -361,6 +361,50 @@ button {
   .layout-switch { display: flex; }
 }
 
+/* Tablet navigation switches to the compact menu before the full desktop
+   links compete with the academy branding for horizontal space. */
+@media (max-width: 900px) {
+  .navbar { padding: 12px 0; }
+  .nav-container { gap: 12px; }
+  .nav-menu {
+    position: fixed;
+    top: 68px;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    flex-direction: column;
+    padding: 26px 20px;
+    gap: 18px;
+    box-shadow: var(--shadow-lg);
+    border-bottom: 1px solid var(--gray-border);
+    transform: translateY(-150%);
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--transition);
+    margin: 0;
+  }
+  .nav-menu.is-open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .mobile-toggle { display: flex; }
+  .nav-actions { gap: 10px; flex: 0 0 auto; }
+  .brand-logo { flex: 1 1 auto; min-width: 0; }
+  .brand-text-wrap { min-width: 0; }
+  .logo-text {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    line-height: 1.05;
+  }
+  .logo-full { white-space: normal; }
+  .logo-subtext {
+    white-space: normal;
+    line-height: 1.15;
+  }
+}
+
 /* The opt-in class reuses the established phone layout rules at tablet widths. */
 @media (min-width: 769px) {
   body.mobile-layout .navbar { padding: 12px 0; }
@@ -1584,6 +1628,31 @@ a.mma-nav-tab:hover {
     padding: 12px 0;
   }
 
+  /* Keep the brand in its own flexible column so the CTA and menu never
+     cover the school name on narrow screens. */
+  .nav-container {
+    gap: 10px;
+  }
+
+  .brand-logo {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .brand-text-wrap {
+    flex: 1 1 auto;
+    overflow: hidden;
+  }
+
+  .logo-text,
+  .logo-subtext {
+    max-width: 100%;
+    overflow: visible;
+    text-overflow: clip;
+    white-space: normal;
+  }
+
   .nav-menu {
     position: fixed;
     top: 68px;
@@ -1609,10 +1678,19 @@ a.mma-nav-tab:hover {
   }
 
   .nav-actions {
-    gap: 12px;
+    gap: 8px;
+    flex: 0 0 auto;
   }
 
-  /* Logo always fully visible at tablet/mobile \u2014 never truncate */
+  .btn-get-app {
+    width: clamp(96px, 30vw, 136px);
+    min-width: clamp(96px, 30vw, 136px);
+    max-width: clamp(96px, 30vw, 136px);
+    padding: 0 10px;
+    font-size: clamp(0.78rem, 3.4vw, 0.94rem);
+  }
+
+  /* Keep the full academy name readable by wrapping it inside the brand area. */
   .logo-full   { display: inline !important; }
   .logo-short  { display: none   !important; }
   .logo-subtext { display: block  !important; }
@@ -1765,11 +1843,13 @@ a.mma-nav-tab:hover {
   .logo-subtext { display: block  !important; }
 
   .logo-text {
-    font-size: 0.95rem;
+    font-size: clamp(0.72rem, 3.6vw, 0.9rem);
+    line-height: 1.05;
   }
 
   .logo-subtext {
-    font-size: 0.6rem;
+    font-size: clamp(0.48rem, 2.35vw, 0.58rem);
+    letter-spacing: 0.035em;
   }
 
   .nav-actions {
@@ -1804,7 +1884,13 @@ a.mma-nav-tab:hover {
   }
 
   .nav-actions {
-    gap: 8px;
+    gap: 6px;
+  }
+
+  .mobile-toggle {
+    width: 36px;
+    min-width: 36px;
+    max-width: 36px;
   }
 
   /* Logo: still full name, just smaller */
